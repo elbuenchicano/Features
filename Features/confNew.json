@@ -1,0 +1,36 @@
+{
+    "source_type": "entire_folder",
+	"general":{
+		"type"		: "matrix",
+		"image"		: {
+			"step"		: 1,
+			"time"		: 12,
+			"depth"		: 3,
+			"img_sze"	: 128,
+			"i_flag"	: 1
+		},
+		"matrix"	:{
+			"npoints"	: 64
+		}
+		
+	},
+	
+    "tracklets_path": {
+        "file"	: "E:/research/features/videos/2017-04-24_14-20-00~14-20-38/2017-04-24_14-20-00~14-20-38_data.yml"
+    },
+	
+	"tracklets_path_matrix": {
+        "file"	: "y:/research/suported/trks/2017-05-08_08-20-44~08-21-15/2017-05-08_08-20-44~08-21-15.propt"
+    },
+	
+	"entire_folder": {
+		"path"	: "y:/Anomalies/umn",
+		"token"	: "propt"
+		
+	},
+	
+	"filelist_propt": {
+		"path"		: "y:/Anomalies/subway/entrance/filelist_propt.lst",
+		"out_lst"	: "y:/Anomalies/subway/entrance/test1"
+	}
+}

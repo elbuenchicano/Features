@@ -1,0 +1,28 @@
+{
+
+    "source_type": "entire_folder",
+	"general":{
+		"step"		: 1,
+		"time"		: 12,
+		"depth"		: 3,
+		"img_sze"	: 128 ,
+		"type"		: "matrix",
+		
+		"mt_npoints": 20,
+		"i_flag"	: 1
+	},
+	
+    "tracklets_path": {
+        "file"	: "E:/research/features/videos/2017-04-24_14-20-00~14-20-38/2017-04-24_14-20-00~14-20-38_data.yml"
+    },
+	
+	"tracklets_path_matrix": {
+        "file"	: "y:/research/camera/2017-04-24_14-20-00~14-20-38/2017-04-24_14-20-00~14-20-38_data.yml"
+    },
+	
+	"entire_folder": {
+		"path"	: "y:/research/camera",
+		"token"	: "yml"
+		
+	}
+}
