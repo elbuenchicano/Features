@@ -69,7 +69,7 @@ def featVideoFile(general, individual):
             cv2.imwrite(out_img, img)
             print('Write file:' , out_img)
 
-    return [out_img], None, None
+    return [out_img], None, None, None
     
     ################################################################################
 #feat extraction from video 

@@ -1,7 +1,7 @@
 {
     "source_type": "entire_folder",
 	"general":{
-		"type"		: "matrix",
+		"type"		: "image",
 		"image"		: {
 			"step"		: 1,
 			"time"		: 12,
@@ -24,7 +24,7 @@
     },
 	
 	"entire_folder": {
-		"path"	: "y:/Anomalies/umn",
+		"path"	: "y:/Anomalies/umn/seq1",
 		"token"	: "propt"
 		
 	},
