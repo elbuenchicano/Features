@@ -1,5 +1,5 @@
 {
-    "source_type": "entire_folder",
+    "source_type": "filelist_propt",
 	"general":{
 		"type"		: "image",
 		"image"		: {
@@ -30,7 +30,7 @@
 	},
 	
 	"filelist_propt": {
-		"path"		: "y:/Anomalies/subway/entrance/filelist_propt.lst",
-		"out_lst"	: "y:/Anomalies/subway/entrance/test1"
+		"path"		: "y:/Anomalies/umn/seq1/filelist_propt.lst",
+		"out_lst"	: "y:/Anomalies/umn/seq1"
 	}
 }

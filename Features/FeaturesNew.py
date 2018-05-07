@@ -12,14 +12,15 @@ import matplotlib.pyplot as plt
 from utils import u_readYAMLFile, u_mkdir, u_listFileAll, u_getPath, u_saveDict2File, u_saveList2File, u_saveArray2File, u_saveArrayTuple2File
 from functions import featTracklet, featTrackletHistoImage
 
-def saveList(path, flist1, flist2, flist3, flist4):
-    if len(flist2) > 0:
-        u_saveList2File(path + '/angular.lst', flist1)
-        u_saveList2File(path + '/radial.lst', flist2)
-        u_saveList2File(path + '/numc.lst', flist3)
-        u_saveList2File(path + '/centers.lst', flist4)
+def saveList(path, flist1, flist2, flist3, flist4, token=''):
+    if flist2 is not None:
+        u_saveList2File(path + '/' + token + 'angular.lst', flist1)
+        u_saveList2File(path + '/' + token + 'radial.lst', flist2)
+        u_saveList2File(path + '/' + token + 'numc.lst', flist3)
+        u_saveList2File(path + '/' + token + 'centers.lst', flist4)
     else:
-        u_saveList2File(path + '/trajec_image.lst', flist1)
+        u_saveList2File(path + '/' + token + 'trajec_image.lst', flist1)
+
 
 ################################################################################
 #feat extraction from video 
@@ -50,6 +51,8 @@ def featVideoFile(general, individual):
     divx    = w/img_sze
     divy    = h/img_sze
 
+    out_imgs    = []
+
     # 0 for combined 1 for individual
     if i_flag == 0:
         img = np.ones((img_sze, img_sze, depth), dtype = "uint8") * 255
@@ -58,6 +61,7 @@ def featVideoFile(general, individual):
         fbase = os.path.basename(dataf)
         out_img = path + '/' + os.path.splitext(fbase)[0] + '_d'+str(depth)+'.png'
         cv2.imwrite(out_img, img)
+        out_imgs.append(out_img)
         print('Write file:' , out_img)
     
     else:
@@ -67,9 +71,10 @@ def featVideoFile(general, individual):
             featTracklet(file, step, divx, divy, img, depth, type)
             out_img = os.path.splitext(file)[0] + '_d'+str(depth)+'i.png'
             cv2.imwrite(out_img, img)
+            out_imgs.append(out_img)
             print('Write file:' , out_img)
 
-    return [out_img], None, None, None
+    return out_imgs, None, None, None
     
     ################################################################################
 #feat extraction from video 
@@ -153,6 +158,9 @@ def entireFolder(general, individual):
                     flist2 = flist2 + a2
                     numc_l = numc_l + cl
                     cent_f = cent_f + cf
+                base = file.split('.')[0]
+                
+                #saveList(root.replace('\\', '/'), a1, a2, cl, cf)
 
     saveList(path, flist1, flist2, numc_l, cent_f)
 
@@ -189,6 +197,9 @@ def fromfilelist(general, individual):
             numc_l  = numc_l + cl
             cent_f  = cent_f + cf
        
+        base = os.path.basename(file).split('.')[0] + '_'
+        saveList(out_, a1, a2, cl, cf, base)
+    
     saveList(out_, flist1, flist2, numc_l, cent_f)
 
 ################################################################################
