@@ -14,10 +14,11 @@ from functions import featTracklet, featTrackletHistoImage
 
 def saveList(path, flist1, flist2, flist3, flist4, token=''):
     if flist2 is not None:
-        u_saveList2File(path + '/' + token + 'angular.lst', flist1)
-        u_saveList2File(path + '/' + token + 'radial.lst', flist2)
-        u_saveList2File(path + '/' + token + 'numc.lst', flist3)
-        u_saveList2File(path + '/' + token + 'centers.lst', flist4)
+        if len(flist2) > 1:
+            u_saveList2File(path + '/' + token + 'angular.lst', flist1)
+            u_saveList2File(path + '/' + token + 'radial.lst', flist2)
+            u_saveList2File(path + '/' + token + 'numc.lst', flist3)
+            u_saveList2File(path + '/' + token + 'centers.lst', flist4)
     else:
         u_saveList2File(path + '/' + token + 'trajec_image.lst', flist1)
 
