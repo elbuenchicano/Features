@@ -9,12 +9,19 @@ import math as mt
 import cv2
 import matplotlib.pyplot as plt
 
-from utils import u_readYAMLFile, u_mkdir, u_listFileAll, u_getPath, u_saveDict2File, u_saveList2File, u_saveArray2File, u_saveArrayTuple2File
+from utils import *
 from functions import featTracklet, featTrackletHistoImage
 
 def saveList(path, flist1, flist2, flist3, flist4, token=''):
+
+    flist1 = sorted(flist1, key = u_stringSplitByNumbers)
+    
     if flist2 is not None:
         if len(flist2) > 1:
+            flist2 = sorted(flist2, key = u_stringSplitByNumbers)
+            flist3 = sorted(flist3, key = u_stringSplitByNumbers)
+            flist4 = sorted(flist4, key = u_stringSplitByNumbers)
+
             u_saveList2File(path + '/' + token + 'angular.lst', flist1)
             u_saveList2File(path + '/' + token + 'radial.lst', flist2)
             u_saveList2File(path + '/' + token + 'numc.lst', flist3)

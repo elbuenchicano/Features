@@ -3,6 +3,7 @@ import yaml
 import os
 import argparse
 import json
+import re
 
 ################################################################################
 ################################################################################
@@ -100,4 +101,9 @@ def u_getPath(file):
     args = parser.parse_args()
     return args.inputpath if args.inputpath is not None else file
     
-
+################################################################################
+################################################################################
+def u_stringSplitByNumbers(x):
+    r = re.compile('(\d+)')
+    l = r.split(x)
+    return [int(y) if y.isdigit() else y for y in l]
